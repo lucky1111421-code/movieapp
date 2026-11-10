@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrameFinder — Movie Discovery &amp; Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="#">FRAME<span>FINDER</span></a>
+      <div class="header-tagline">Curated Cinema &bull; 100% Client-Side</div>
+      <button type="button" id="watchlistBtn" class="watchlist-nav-btn">
+        <span>My Watchlist</span>
+        <span id="watchlistCount" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">THE WORLD OF CINEMA, INSTANTLY SEARCHABLE</p>
+      <h1>What are we <em>watching?</em></h1>
+      <p class="hero-sub">Explore hand-picked classics, sci-fi masterpieces, and award-winning blockbusters.</p>
+
+      <form id="searchForm" class="search-form">
+        <div class="search-input-wrap">
+          <span class="search-icon"></span>
+          <input 
+            id="query" 
+            type="text" 
+            placeholder="Search by title, director, actor, or genre..." 
+            autocomplete="off"
+          >
+          <button type="button" id="clearSearch" class="clear-btn" hidden>&times;</button>
+        </div>
+        <button type="submit" class="search-submit">Search</button>
+      </form>
+
+      <!-- Category Filter Chips -->
+      <div class="genre-filters" id="genreFilters">
+        <button type="button" class="genre-chip active" data-genre="all">All Genres</button>
+        <button type="button" class="genre-chip" data-genre="Sci-Fi">Sci-Fi</button>
+        <button type="button" class="genre-chip" data-genre="Action">Action</button>
+        <button type="button" class="genre-chip" data-genre="Drama">Drama</button>
+        <button type="button" class="genre-chip" data-genre="Thriller">Thriller</button>
+        <button type="button" class="genre-chip" data-genre="Adventure">Adventure</button>
+        <button type="button" class="genre-chip" data-genre="Animation">Animation</button>
+        <button type="button" class="genre-chip" data-genre="Mystery">Mystery</button>
+      </div>
+    </section>
+
+    <!-- Toolbar: Status & Sort -->
+    <div class="results-toolbar">
+      <div class="status-wrap" id="status">Showing 30 featured cinema titles</div>
+      <div class="sort-wrap">
+        <label for="sortSelect">Sort:</label>
+        <select id="sortSelect">
+          <option value="rating">★ Highest Rated</option>
+          <option value="year-desc">📅 Newest First</option>
+          <option value="year-asc">⏳ Oldest First</option>
+          <option value="title">🔤 Title (A–Z)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Movie Grid -->
+    <section id="results" class="grid"></section>
+
+    <!-- Empty State -->
+    <div id="noResults" class="no-results" hidden>
+      <div class="no-icon">🎬</div>
+      <h3>No movies found</h3>
+      <p>Try searching for "Inception", "Nolan", "Action", or reset filters.</p>
+      <button type="button" id="resetFiltersBtn" class="reset-btn">Reset All Filters</button>
+    </div>
+  </main>
+
+  <!-- Movie Detail Modal -->
+  <div id="movieModal" class="modal-backdrop" hidden>
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close dialog">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span>FrameFinder &bull; Discover stories worth watching.</span>
+      <span>Built with pure HTML &bull; CSS &bull; JavaScript (Zero API Key Required)</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
